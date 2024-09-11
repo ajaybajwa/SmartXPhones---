@@ -24,8 +24,8 @@ jobs:
 
       - name: Build with Maven
         run: |
-        cd ecommerce-backend
-        mvn clean install
+          cd ecommerce-backend
+          mvn clean install
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
