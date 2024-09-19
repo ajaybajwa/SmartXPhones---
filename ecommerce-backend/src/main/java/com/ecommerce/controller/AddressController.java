@@ -17,7 +17,7 @@ import com.ecommerce.model.Address;
 import com.ecommerce.service.AddressService;
 
 
-@CrossOrigin(origins = {"http://localhost:4201" })
+@CrossOrigin(origins = {"http://localhost:4201","smartxstore.azurewebsites.net"})
 @RestController
 @RequestMapping("/address")
 public class AddressController {

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ecommerce.model.Product;
 import com.ecommerce.service.ProductService;
  
-@CrossOrigin(origins = {"http://localhost:4201" })
+@CrossOrigin(origins = {"http://localhost:4201","smartxstore.azurewebsites.net"})
 @RestController
 @RequestMapping("/catalog")
 public class ProductController {

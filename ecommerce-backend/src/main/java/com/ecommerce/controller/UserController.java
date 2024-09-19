@@ -20,7 +20,7 @@ import com.ecommerce.model.User;
 import com.ecommerce.service.RoleService;
 import com.ecommerce.service.UserService;
 
-@CrossOrigin(origins = {"http://localhost:4201" })
+@CrossOrigin(origins = {"http://localhost:4201","smartxstore.azurewebsites.net" })
 @RestController
 @RequestMapping("/user")
 public class UserController {

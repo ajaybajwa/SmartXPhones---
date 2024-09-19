@@ -19,7 +19,7 @@ import com.ecommerce.email.EmailService;
 import com.ecommerce.model.Orders;
 import com.ecommerce.service.OrderService;
 
-@CrossOrigin(origins = {"http://localhost:4201" })
+@CrossOrigin(origins = {"http://localhost:4201","smartxstore.azurewebsites.net" })
 @RestController
 @RequestMapping("/orders")
 public class OrdersController {

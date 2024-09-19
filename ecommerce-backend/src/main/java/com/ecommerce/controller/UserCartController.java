@@ -17,7 +17,7 @@ import com.ecommerce.model.UserCart;
 import com.ecommerce.model.UserCartId;
 import com.ecommerce.service.UserCartService;
 
-@CrossOrigin(origins = {"http://localhost:4201" })
+@CrossOrigin(origins = {"http://localhost:4201","smartxstore.azurewebsites.net" })
 @RestController
 @RequestMapping("/cart")
 public class UserCartController {
