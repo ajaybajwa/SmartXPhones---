@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.ecommerce.controllers.OrdersTest
--------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.857 s - in com.ecommerce.controllers.OrdersTest
