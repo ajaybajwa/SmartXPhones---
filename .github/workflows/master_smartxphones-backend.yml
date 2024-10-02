@@ -7,6 +7,8 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'ecommerce-backend/**'
   workflow_dispatch:
 
 jobs:
@@ -14,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v2
 
       - name: Set up Java version
         uses: actions/setup-java@v1
@@ -22,10 +24,12 @@ jobs:
           java-version: '8'
 
       - name: Build with Maven
-        run: mvn clean install
+        run: |
+          cd ecommerce-backend
+          mvn clean install
 
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: java-app
           path: '${{ github.workspace }}/target/*.jar'
@@ -39,7 +43,7 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v2
         with:
           name: java-app
 
