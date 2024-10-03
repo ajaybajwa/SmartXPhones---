@@ -18,6 +18,28 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: update db url
+        run: sed -i 's/<db_url>/${{ secrets.DB_URI }}/' ecommerce-backend/src/main/resources/application.properties
+
+      - name: update db username
+        run: sed -i 's/<db_username>/${{ secrets.DB_USERNAME }}/' ecommerce-backend/src/main/resources/application.properties
+
+      - name: update db password
+        run: sed -i 's/<db_password>/${{ secrets.DB_PASSWORD }}/' ecommerce-backend/src/main/resources/application.properties
+
+      - name: update twilio sid
+        run: sed -i 's/<twilio_sid>/${{ secrets.TWILIO_SID }}/' ecommerce-backend/src/main/resources/application.properties
+
+      - name: update twilio auth token
+        run: sed -i 's/<twilio_authtoen>/${{ secrets.TWILIO_AUTHTOKEN }}/' ecommerce-backend/src/main/resources/application.properties
+
+      - name: update mailtrap username
+        run: sed -i 's/<mailtrap_username>/${{ secrets.MAILTRAP_USERNAME }}/' ecommerce-backend/src/main/resources/application.properties
+
+      - name: update mailtrap password
+        run: sed -i 's/<mailtrap_password>/${{ secrets.MAILTRAP_PASSWORD }}/' ecommerce-backend/src/main/resources/application.properties
+      
+
       - name: Set up Java version
         uses: actions/setup-java@v1
         with:
