@@ -7,8 +7,6 @@ on:
   push:
     branches:
       - master
-    paths:
-      - 'ecommerce-frontend/**'
   workflow_dispatch:
 
 jobs:
@@ -25,15 +23,18 @@ jobs:
 
       - name: npm install, build, and test
         run: |
-          cd ecommerce-frontend
           npm install
-          npm run build --prod
+          npm run build --if-present
+          npm run test --if-present
+
+      - name: Zip artifact for deployment
+        run: zip release.zip ./* -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: node-app
-          path: ./ecommerce-frontend/dist/ecommerce-project
+          path: release.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -48,11 +49,14 @@ jobs:
         with:
           name: node-app
 
+      - name: Unzip artifact for deployment
+        run: unzip release.zip
+
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'smartxstore'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E3072D9C31464F8AA1141AFD152C2C71 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A29EFE2E9BF34AF6AB79CF83E9B06719 }}
           package: .
