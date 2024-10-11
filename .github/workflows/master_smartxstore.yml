@@ -33,7 +33,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: node-app
-          path: .
+          path: ./ecommerce-frontend/dist/ecommerce-project
 
   deploy:
     runs-on: ubuntu-latest
